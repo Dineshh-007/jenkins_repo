@@ -1,19 +1,16 @@
-shopping_list = []
+# Replace your while loop with this automated loop
+items_to_add = [("apple", 1.50), ("milk", 3.00), ("done")]
 budget = 50.0
+shopping_list = []
 
-print("Welcome to your Python Grocery Assistant!")
+print("Welcome to your Automated Python Grocery Assistant!")
 
-while True:
-    item = input("\nEnter item to add (or type 'done'): ")
-    
-    if item == 'done':
+for item_info in items_to_add:
+    if item_info == 'done':
         break
         
-    try:
-        price = float(input("Enter price of the item: "))
-    except ValueError:
-        print("Please enter a valid number for the price.")
-        continue
+    item, price = item_info
+    print(f"\nProcessing item: {item} (${price})")
 
     if price <= budget:
         shopping_list.append(item)
@@ -25,3 +22,4 @@ while True:
 print("\n--- Final Summary ---")
 print(f"Items bought: {shopping_list}")
 print(f"Money remaining: ${budget:.2f}")
+
